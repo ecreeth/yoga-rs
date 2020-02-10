@@ -21,14 +21,14 @@ fn test_padding_no_size() {
 	root.set_padding(Edge::Top, StyleUnit::Point((10 as f32).into()));
 	root.set_padding(Edge::Right, StyleUnit::Point((10 as f32).into()));
 	root.set_padding(Edge::Bottom, StyleUnit::Point((10 as f32).into()));
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
 	assert_eq!(20 as f32, root.get_layout_width());
 	assert_eq!(20 as f32, root.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -52,7 +52,7 @@ fn test_padding_container_match_child() {
 	root_child0.set_height(StyleUnit::Point((10 as f32).into()));
 	root_child0.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child0, 0);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -64,7 +64,7 @@ fn test_padding_container_match_child() {
 	assert_eq!(10 as f32, root_child0.get_layout_width());
 	assert_eq!(10 as f32, root_child0.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -95,7 +95,7 @@ fn test_padding_flex_child() {
 	root_child0.set_min_width(StyleUnit::Auto);
 	root_child0.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child0, 0);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -107,7 +107,7 @@ fn test_padding_flex_child() {
 	assert_eq!(10 as f32, root_child0.get_layout_width());
 	assert_eq!(80 as f32, root_child0.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -137,7 +137,7 @@ fn test_padding_stretch_child() {
 	root_child0.set_height(StyleUnit::Point((10 as f32).into()));
 	root_child0.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child0, 0);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -149,7 +149,7 @@ fn test_padding_stretch_child() {
 	assert_eq!(80 as f32, root_child0.get_layout_width());
 	assert_eq!(10 as f32, root_child0.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -181,7 +181,7 @@ fn test_padding_center_child() {
 	root_child0.set_height(StyleUnit::Point((10 as f32).into()));
 	root_child0.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child0, 0);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -193,7 +193,7 @@ fn test_padding_center_child() {
 	assert_eq!(10 as f32, root_child0.get_layout_width());
 	assert_eq!(10 as f32, root_child0.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -226,7 +226,7 @@ fn test_child_with_padding_align_end() {
 	root_child0.set_height(StyleUnit::Point((100 as f32).into()));
 	root_child0.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child0, 0);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -238,7 +238,7 @@ fn test_child_with_padding_align_end() {
 	assert_eq!(100 as f32, root_child0.get_layout_width());
 	assert_eq!(100 as f32, root_child0.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());

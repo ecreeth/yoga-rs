@@ -1,7 +1,7 @@
 #[macro_use]
 extern crate yoga;
 
-use yoga::{Align, Direction, FlexDirection, Node, NodeRef, Undefined};
+use yoga::{Align, Direction, FlexDirection, Node, NodeRef, UNDEFINED};
 use yoga::prelude::*;
 
 #[test]
@@ -46,7 +46,7 @@ fn test_align_baseline_customer_func() {
 
 	root_child_1.insert_child(&mut root_child_1_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();

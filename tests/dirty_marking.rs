@@ -2,7 +2,7 @@ extern crate ordered_float;
 #[macro_use]
 extern crate yoga;
 
-use yoga::{Align, Direction, Display, FlexDirection, Node, Undefined};
+use yoga::{Align, Direction, Display, FlexDirection, Node, UNDEFINED};
 use yoga::prelude::*;
 
 #[test]
@@ -31,7 +31,7 @@ fn test_dirty_propagation() {
 
 	root.insert_child(&mut root_child_0, 0);
 	root.insert_child(&mut root_child_1, 1);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	style!(root_child_0,
 		Width(20 pt)
@@ -41,7 +41,7 @@ fn test_dirty_propagation() {
 	assert!(!root_child_1.is_dirty());
 	assert!(root.is_dirty());
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert!(!root_child_0.is_dirty());
 	assert!(!root_child_1.is_dirty());
@@ -74,7 +74,7 @@ fn test_dirty_propagation_only_if_prop_changed() {
 
 	root.insert_child(&mut root_child_0, 0);
 	root.insert_child(&mut root_child_1, 1);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	style!(root_child_0,
 		Width(50 pt)
@@ -116,7 +116,7 @@ fn test_dirty_mark_all_children_as_dirty_when_display_changes() {
 	root_child_1.insert_child(&mut root_child_1_child_0, 0);
 	root_child_1_child_0.insert_child(&mut root_child_1_child_0_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_child_1_child_0_child_0_layout = root_child_1_child_0_child_0.get_layout();
 	assert_eq!(0.0, root_child_1_child_0_child_0_layout.width());
@@ -125,7 +125,7 @@ fn test_dirty_mark_all_children_as_dirty_when_display_changes() {
 	root_child_0.set_display(Display::None);
 	root_child_1.set_display(Display::Flex);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_child_1_child_0_child_0_layout = root_child_1_child_0_child_0.get_layout();
 	assert_eq!(8.0, root_child_1_child_0_child_0_layout.width());
@@ -134,7 +134,7 @@ fn test_dirty_mark_all_children_as_dirty_when_display_changes() {
 	root_child_0.set_display(Display::Flex);
 	root_child_1.set_display(Display::None);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_child_1_child_0_child_0_layout = root_child_1_child_0_child_0.get_layout();
 	assert_eq!(0.0, root_child_1_child_0_child_0_layout.width());
@@ -143,7 +143,7 @@ fn test_dirty_mark_all_children_as_dirty_when_display_changes() {
 	root_child_0.set_display(Display::None);
 	root_child_1.set_display(Display::Flex);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_child_1_child_0_child_0_layout = root_child_1_child_0_child_0.get_layout();
 	assert_eq!(8.0, root_child_1_child_0_child_0_layout.width());
@@ -168,7 +168,7 @@ fn test_dirty_node_only_if_children_are_actually_removed() {
 	);
 
 	root.insert_child(&mut root_child_0, 0);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let mut root_child_1 = Node::new();
 

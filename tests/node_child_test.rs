@@ -1,6 +1,6 @@
 extern crate yoga;
 
-use yoga::{Direction, Node, StyleUnit, Undefined};
+use yoga::{Direction, Node, StyleUnit, UNDEFINED};
 
 #[test]
 fn test_reset_layout_when_child_removed() {
@@ -11,7 +11,7 @@ fn test_reset_layout_when_child_removed() {
 	root_child0.set_height(StyleUnit::Point(100.0.into()));
 	root.insert_child(&mut root_child0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0, root_child0.get_layout_left() as i32);
 	assert_eq!(0, root_child0.get_layout_top() as i32);
@@ -22,6 +22,6 @@ fn test_reset_layout_when_child_removed() {
 
 	assert_eq!(0, root_child0.get_layout_left() as i32);
 	assert_eq!(0, root_child0.get_layout_top() as i32);
-	assert_eq!(Undefined, root_child0.get_layout_width());
-	assert_eq!(Undefined, root_child0.get_layout_height());
+	assert_eq!(UNDEFINED, root_child0.get_layout_width());
+	assert_eq!(UNDEFINED, root_child0.get_layout_height());
 }

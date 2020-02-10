@@ -56,7 +56,7 @@ fn test_align_content_flex_start() {
 	root_child4.set_height(StyleUnit::Point((10 as f32).into()));
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -88,7 +88,7 @@ fn test_align_content_flex_start() {
 	assert_eq!(50 as f32, root_child4.get_layout_width());
 	assert_eq!(10 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -161,7 +161,7 @@ fn test_align_content_flex_start_without_height_on_children() {
 	root_child4.set_min_width(StyleUnit::Auto);
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -193,7 +193,7 @@ fn test_align_content_flex_start_without_height_on_children() {
 	assert_eq!(50 as f32, root_child4.get_layout_width());
 	assert_eq!(0 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -272,7 +272,7 @@ fn test_align_content_flex_start_with_flex() {
 	root_child4.set_min_width(StyleUnit::Auto);
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -304,7 +304,7 @@ fn test_align_content_flex_start_with_flex() {
 	assert_eq!(50 as f32, root_child4.get_layout_width());
 	assert_eq!(0 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -381,7 +381,7 @@ fn test_align_content_flex_end() {
 	root_child4.set_height(StyleUnit::Point((10 as f32).into()));
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -413,7 +413,7 @@ fn test_align_content_flex_end() {
 	assert_eq!(50 as f32, root_child4.get_layout_width());
 	assert_eq!(10 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -485,7 +485,7 @@ fn test_align_content_stretch() {
 	root_child4.set_min_width(StyleUnit::Auto);
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -517,7 +517,7 @@ fn test_align_content_stretch() {
 	assert_eq!(50 as f32, root_child4.get_layout_width());
 	assert_eq!(0 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -595,7 +595,7 @@ fn test_align_content_spacebetween() {
 	root_child4.set_height(StyleUnit::Point((10 as f32).into()));
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -627,7 +627,7 @@ fn test_align_content_spacebetween() {
 	assert_eq!(50 as f32, root_child4.get_layout_width());
 	assert_eq!(10 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -705,7 +705,7 @@ fn test_align_content_spacearound() {
 	root_child4.set_height(StyleUnit::Point((10 as f32).into()));
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -737,7 +737,7 @@ fn test_align_content_spacearound() {
 	assert_eq!(50 as f32, root_child4.get_layout_width());
 	assert_eq!(10 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -810,7 +810,7 @@ fn test_align_content_stretch_row() {
 	root_child4.set_min_width(StyleUnit::Auto);
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -842,7 +842,7 @@ fn test_align_content_stretch_row() {
 	assert_eq!(50 as f32, root_child4.get_layout_width());
 	assert_eq!(50 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -923,7 +923,7 @@ fn test_align_content_stretch_row_with_children() {
 	root_child4.set_min_width(StyleUnit::Auto);
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -960,7 +960,7 @@ fn test_align_content_stretch_row_with_children() {
 	assert_eq!(50 as f32, root_child4.get_layout_width());
 	assert_eq!(50 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1044,7 +1044,7 @@ fn test_align_content_stretch_row_with_flex() {
 	root_child4.set_min_width(StyleUnit::Auto);
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1076,7 +1076,7 @@ fn test_align_content_stretch_row_with_flex() {
 	assert_eq!(50 as f32, root_child4.get_layout_width());
 	assert_eq!(100 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1154,7 +1154,7 @@ fn test_align_content_stretch_row_with_flex_no_shrink() {
 	root_child4.set_min_width(StyleUnit::Auto);
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1186,7 +1186,7 @@ fn test_align_content_stretch_row_with_flex_no_shrink() {
 	assert_eq!(50 as f32, root_child4.get_layout_width());
 	assert_eq!(100 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1267,7 +1267,7 @@ fn test_align_content_stretch_row_with_margin() {
 	root_child4.set_min_width(StyleUnit::Auto);
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1299,7 +1299,7 @@ fn test_align_content_stretch_row_with_margin() {
 	assert_eq!(50 as f32, root_child4.get_layout_width());
 	assert_eq!(20 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1380,7 +1380,7 @@ fn test_align_content_stretch_row_with_padding() {
 	root_child4.set_min_width(StyleUnit::Auto);
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1412,7 +1412,7 @@ fn test_align_content_stretch_row_with_padding() {
 	assert_eq!(50 as f32, root_child4.get_layout_width());
 	assert_eq!(50 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1467,7 +1467,7 @@ fn test_align_content_stretch_row_with_single_row() {
 	root_child1.set_min_width(StyleUnit::Auto);
 	root_child1.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child1, 1);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1484,7 +1484,7 @@ fn test_align_content_stretch_row_with_single_row() {
 	assert_eq!(50 as f32, root_child1.get_layout_width());
 	assert_eq!(100 as f32, root_child1.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1543,7 +1543,7 @@ fn test_align_content_stretch_row_with_fixed_height() {
 	root_child4.set_min_width(StyleUnit::Auto);
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1575,7 +1575,7 @@ fn test_align_content_stretch_row_with_fixed_height() {
 	assert_eq!(50 as f32, root_child4.get_layout_width());
 	assert_eq!(20 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1649,7 +1649,7 @@ fn test_align_content_stretch_row_with_max_height() {
 	root_child4.set_min_width(StyleUnit::Auto);
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1681,7 +1681,7 @@ fn test_align_content_stretch_row_with_max_height() {
 	assert_eq!(50 as f32, root_child4.get_layout_width());
 	assert_eq!(50 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1754,7 +1754,7 @@ fn test_align_content_stretch_row_with_min_height() {
 	root_child4.set_min_width(StyleUnit::Auto);
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1786,7 +1786,7 @@ fn test_align_content_stretch_row_with_min_height() {
 	assert_eq!(50 as f32, root_child4.get_layout_width());
 	assert_eq!(10 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1869,7 +1869,7 @@ fn test_align_content_stretch_column() {
 	root_child4.set_height(StyleUnit::Point((50 as f32).into()));
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1906,7 +1906,7 @@ fn test_align_content_stretch_column() {
 	assert_eq!(50 as f32, root_child4.get_layout_width());
 	assert_eq!(50 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1968,7 +1968,7 @@ fn test_align_content_stretch_is_not_overriding_align_items() {
 	root_child0_child0.set_height(StyleUnit::Point((10 as f32).into()));
 	root_child0_child0.set_min_height(StyleUnit::Auto);
 	root_child0.insert_child(&mut root_child0_child0, 0);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1985,7 +1985,7 @@ fn test_align_content_stretch_is_not_overriding_align_items() {
 	assert_eq!(10 as f32, root_child0_child0.get_layout_width());
 	assert_eq!(10 as f32, root_child0_child0.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());

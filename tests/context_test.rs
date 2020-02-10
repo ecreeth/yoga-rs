@@ -2,7 +2,7 @@ extern crate yoga;
 
 use std::cell::RefCell;
 use std::rc::Rc;
-use yoga::{Context, Direction, MeasureMode, Node, NodeRef, Size, Undefined};
+use yoga::{Context, Direction, MeasureMode, Node, NodeRef, Size, UNDEFINED};
 
 #[test]
 fn test_context_0() {
@@ -51,7 +51,7 @@ fn test_context_2_safe_check() {
 	root.set_context(Some(context));
 	root.set_measure_func(Some(measure));
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 
@@ -86,7 +86,7 @@ fn test_context_2() {
 	root.set_context(Some(context));
 	root.set_measure_func(Some(measure));
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 
@@ -143,7 +143,7 @@ fn test_context_3() {
 	root.set_context(Some(data));
 	root.set_measure_func(Some(measure));
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 
@@ -179,7 +179,7 @@ fn test_context_4() {
 	root.set_context(Some(data));
 	root.set_measure_func(Some(external_measure));
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 

@@ -36,7 +36,7 @@ fn test_flex_direction_column_no_height() {
 	root_child2.set_height(StyleUnit::Point((10 as f32).into()));
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -58,7 +58,7 @@ fn test_flex_direction_column_no_height() {
 	assert_eq!(100 as f32, root_child2.get_layout_width());
 	assert_eq!(10 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -106,7 +106,7 @@ fn test_flex_direction_row_no_width() {
 	root_child2.set_min_width(StyleUnit::Auto);
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -128,7 +128,7 @@ fn test_flex_direction_row_no_width() {
 	assert_eq!(10 as f32, root_child2.get_layout_width());
 	assert_eq!(100 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -176,7 +176,7 @@ fn test_flex_direction_column() {
 	root_child2.set_height(StyleUnit::Point((10 as f32).into()));
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -198,7 +198,7 @@ fn test_flex_direction_column() {
 	assert_eq!(100 as f32, root_child2.get_layout_width());
 	assert_eq!(10 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -247,7 +247,7 @@ fn test_flex_direction_row() {
 	root_child2.set_min_width(StyleUnit::Auto);
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -269,7 +269,7 @@ fn test_flex_direction_row() {
 	assert_eq!(10 as f32, root_child2.get_layout_width());
 	assert_eq!(100 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -318,7 +318,7 @@ fn test_flex_direction_column_reverse() {
 	root_child2.set_height(StyleUnit::Point((10 as f32).into()));
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -340,7 +340,7 @@ fn test_flex_direction_column_reverse() {
 	assert_eq!(100 as f32, root_child2.get_layout_width());
 	assert_eq!(10 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -389,7 +389,7 @@ fn test_flex_direction_row_reverse() {
 	root_child2.set_min_width(StyleUnit::Auto);
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -411,7 +411,7 @@ fn test_flex_direction_row_reverse() {
 	assert_eq!(10 as f32, root_child2.get_layout_width());
 	assert_eq!(100 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());

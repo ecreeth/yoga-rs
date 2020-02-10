@@ -1,6 +1,6 @@
 extern crate yoga;
 
-use yoga::{Direction, FlexDirection, Node, StyleUnit, Undefined};
+use yoga::{Direction, FlexDirection, Node, StyleUnit, UNDEFINED};
 
 #[test]
 fn test_copy_style_same() {
@@ -34,7 +34,7 @@ fn test_copy_style_modified_same() {
 	let mut node0 = Node::new();
 	node0.set_flex_direction(FlexDirection::Row);
 	node0.set_max_height(StyleUnit::Point(10.0.into()));
-	node0.calculate_layout(Undefined, Undefined, Direction::LTR);
+	node0.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 	assert!(!node0.is_dirty());
 
 	let mut node1 = Node::new();

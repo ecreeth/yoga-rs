@@ -38,7 +38,7 @@ fn test_rounding_flex_basis_flex_grow_row_width_of_100() {
 	root_child2.set_min_width(StyleUnit::Auto);
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -60,7 +60,7 @@ fn test_rounding_flex_basis_flex_grow_row_width_of_100() {
 	assert_eq!(33 as f32, root_child2.get_layout_width());
 	assert_eq!(100 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -121,7 +121,7 @@ fn test_rounding_flex_basis_flex_grow_row_prime_number_width() {
 	root_child4.set_min_width(StyleUnit::Auto);
 	root_child4.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child4, 4);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -153,7 +153,7 @@ fn test_rounding_flex_basis_flex_grow_row_prime_number_width() {
 	assert_eq!(23 as f32, root_child4.get_layout_width());
 	assert_eq!(100 as f32, root_child4.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -213,7 +213,7 @@ fn test_rounding_flex_basis_flex_shrink_row() {
 	root_child2.set_min_width(StyleUnit::Auto);
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -235,7 +235,7 @@ fn test_rounding_flex_basis_flex_shrink_row() {
 	assert_eq!(25 as f32, root_child2.get_layout_width());
 	assert_eq!(100 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -287,7 +287,7 @@ fn test_rounding_flex_basis_overrides_main_size() {
 	root_child2.set_height(StyleUnit::Point((10 as f32).into()));
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -309,7 +309,7 @@ fn test_rounding_flex_basis_overrides_main_size() {
 	assert_eq!(100 as f32, root_child2.get_layout_width());
 	assert_eq!(24 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -361,7 +361,7 @@ fn test_rounding_total_fractial() {
 	root_child2.set_height(StyleUnit::Point((10.7 as f32).into()));
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -383,7 +383,7 @@ fn test_rounding_total_fractial() {
 	assert_eq!(87 as f32, root_child2.get_layout_width());
 	assert_eq!(24 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -453,7 +453,7 @@ fn test_rounding_total_fractial_nested() {
 	root_child2.set_height(StyleUnit::Point((10.7 as f32).into()));
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -485,7 +485,7 @@ fn test_rounding_total_fractial_nested() {
 	assert_eq!(87 as f32, root_child2.get_layout_width());
 	assert_eq!(24 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -547,7 +547,7 @@ fn test_rounding_fractial_input_1() {
 	root_child2.set_height(StyleUnit::Point((10 as f32).into()));
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -569,7 +569,7 @@ fn test_rounding_fractial_input_1() {
 	assert_eq!(100 as f32, root_child2.get_layout_width());
 	assert_eq!(24 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -621,7 +621,7 @@ fn test_rounding_fractial_input_2() {
 	root_child2.set_height(StyleUnit::Point((10 as f32).into()));
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -643,7 +643,7 @@ fn test_rounding_fractial_input_2() {
 	assert_eq!(100 as f32, root_child2.get_layout_width());
 	assert_eq!(25 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -696,7 +696,7 @@ fn test_rounding_fractial_input_3() {
 	root_child2.set_height(StyleUnit::Point((10 as f32).into()));
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -718,7 +718,7 @@ fn test_rounding_fractial_input_3() {
 	assert_eq!(100 as f32, root_child2.get_layout_width());
 	assert_eq!(25 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -771,7 +771,7 @@ fn test_rounding_fractial_input_4() {
 	root_child2.set_height(StyleUnit::Point((10 as f32).into()));
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(1 as f32, root.get_layout_top());
@@ -793,7 +793,7 @@ fn test_rounding_fractial_input_4() {
 	assert_eq!(100 as f32, root_child2.get_layout_width());
 	assert_eq!(24 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(1 as f32, root.get_layout_top());
@@ -851,7 +851,7 @@ fn test_rounding_inner_node_controversy_horizontal() {
 	root_child2.set_height(StyleUnit::Point((10 as f32).into()));
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -878,7 +878,7 @@ fn test_rounding_inner_node_controversy_horizontal() {
 	assert_eq!(107 as f32, root_child2.get_layout_width());
 	assert_eq!(10 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -940,7 +940,7 @@ fn test_rounding_inner_node_controversy_vertical() {
 	root_child2.set_min_width(StyleUnit::Auto);
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -967,7 +967,7 @@ fn test_rounding_inner_node_controversy_vertical() {
 	assert_eq!(10 as f32, root_child2.get_layout_width());
 	assert_eq!(107 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1052,7 +1052,7 @@ fn test_rounding_inner_node_controversy_combined() {
 	root_child2.set_height(StyleUnit::Percent((100 as f32).into()));
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -1094,7 +1094,7 @@ fn test_rounding_inner_node_controversy_combined() {
 	assert_eq!(213 as f32, root_child2.get_layout_width());
 	assert_eq!(320 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());

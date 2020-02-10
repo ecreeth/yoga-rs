@@ -134,7 +134,7 @@ RustEmitter.prototype = Object.create(Emitter.prototype, {
 
   YGNodeCalculateLayout: {
     value: function (node, dir, experiments) {
-      this.push(node + '.calculate_layout(Undefined, Undefined, ' + dir + ');')
+      this.push(node + '.calculate_layout(UNDEFINED, UNDEFINED, ' + dir + ');')
     }
   },
 

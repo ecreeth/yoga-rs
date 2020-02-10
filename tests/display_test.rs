@@ -31,7 +31,7 @@ fn test_display_none() {
 	root_child1.set_flex_grow(1 as f32);
 	root_child1.set_display(Display::None);
 	root.insert_child(&mut root_child1, 1);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -48,7 +48,7 @@ fn test_display_none() {
 	assert_eq!(0 as f32, root_child1.get_layout_width());
 	assert_eq!(0 as f32, root_child1.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -86,7 +86,7 @@ fn test_display_none_fixed_size() {
 	root_child1.set_height(StyleUnit::Point((20 as f32).into()));
 	root_child1.set_display(Display::None);
 	root.insert_child(&mut root_child1, 1);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -103,7 +103,7 @@ fn test_display_none_fixed_size() {
 	assert_eq!(0 as f32, root_child1.get_layout_width());
 	assert_eq!(0 as f32, root_child1.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -145,7 +145,7 @@ fn test_display_none_with_margin() {
 	root_child1.set_min_width(StyleUnit::Auto);
 	root_child1.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child1, 1);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -162,7 +162,7 @@ fn test_display_none_with_margin() {
 	assert_eq!(100 as f32, root_child1.get_layout_width());
 	assert_eq!(100 as f32, root_child1.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -218,7 +218,7 @@ fn test_display_none_with_child() {
 	root_child2.set_min_width(StyleUnit::Auto);
 	root_child2.set_min_height(StyleUnit::Auto);
 	root.insert_child(&mut root_child2, 2);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -245,7 +245,7 @@ fn test_display_none_with_child() {
 	assert_eq!(50 as f32, root_child2.get_layout_width());
 	assert_eq!(100 as f32, root_child2.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -293,7 +293,7 @@ fn test_display_none_with_position() {
 	root_child1.set_position(Edge::Top, StyleUnit::Point((10 as f32).into()));
 	root_child1.set_display(Display::None);
 	root.insert_child(&mut root_child1, 1);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -310,7 +310,7 @@ fn test_display_none_with_position() {
 	assert_eq!(0 as f32, root_child1.get_layout_width());
 	assert_eq!(0 as f32, root_child1.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());

@@ -2,7 +2,7 @@ extern crate ordered_float;
 #[macro_use]
 extern crate yoga;
 
-use yoga::{Direction, FlexDirection, Node, Undefined};
+use yoga::{Direction, FlexDirection, Node, UNDEFINED};
 use yoga::prelude::*;
 
 #[test]
@@ -25,7 +25,7 @@ fn test_start_overrides() {
 	);
 
 	root.insert_child(&mut root_child_0, 0);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_layout = root_child_0.get_layout();
@@ -41,7 +41,7 @@ fn test_start_overrides() {
 	assert_eq!(70.0, child_layout.width());
 	assert_eq!(100.0, child_layout.height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	let root_layout = root.get_layout();
 	let child_layout = root_child_0.get_layout();
@@ -78,7 +78,7 @@ fn test_end_overrides() {
 	);
 
 	root.insert_child(&mut root_child_0, 0);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_layout = root_child_0.get_layout();
@@ -94,7 +94,7 @@ fn test_end_overrides() {
 	assert_eq!(70.0, child_layout.width());
 	assert_eq!(100.0, child_layout.height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	let root_layout = root.get_layout();
 	let child_layout = root_child_0.get_layout();
@@ -130,7 +130,7 @@ fn test_horizontal_overridden() {
 	);
 
 	root.insert_child(&mut root_child_0, 0);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_layout = root_child_0.get_layout();
@@ -146,7 +146,7 @@ fn test_horizontal_overridden() {
 	assert_eq!(70.0, child_layout.width());
 	assert_eq!(100.0, child_layout.height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	let root_layout = root.get_layout();
 	let child_layout = root_child_0.get_layout();
@@ -182,7 +182,7 @@ fn test_vertical_overridden() {
 	);
 
 	root.insert_child(&mut root_child_0, 0);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_layout = root_child_0.get_layout();
@@ -199,7 +199,7 @@ fn test_vertical_overridden() {
 	assert_eq!(100.0, child_layout.width());
 	assert_eq!(70.0, child_layout.height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	let root_layout = root.get_layout();
 	let child_layout = root_child_0.get_layout();
@@ -236,7 +236,7 @@ fn test_horizontal_overrides_all() {
 	);
 
 	root.insert_child(&mut root_child_0, 0);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_layout = root_child_0.get_layout();
@@ -253,7 +253,7 @@ fn test_horizontal_overrides_all() {
 	assert_eq!(80.0, child_layout.width());
 	assert_eq!(60.0, child_layout.height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	let root_layout = root.get_layout();
 	let child_layout = root_child_0.get_layout();
@@ -290,7 +290,7 @@ fn test_vertical_overrides_all() {
 	);
 
 	root.insert_child(&mut root_child_0, 0);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_layout = root_child_0.get_layout();
@@ -307,7 +307,7 @@ fn test_vertical_overrides_all() {
 	assert_eq!(60.0, child_layout.width());
 	assert_eq!(80.0, child_layout.height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	let root_layout = root.get_layout();
 	let child_layout = root_child_0.get_layout();
@@ -347,7 +347,7 @@ fn test_all_overridden() {
 	);
 
 	root.insert_child(&mut root_child_0, 0);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_layout = root_child_0.get_layout();
@@ -364,7 +364,7 @@ fn test_all_overridden() {
 	assert_eq!(80.0, child_layout.width());
 	assert_eq!(80.0, child_layout.height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	let root_layout = root.get_layout();
 	let child_layout = root_child_0.get_layout();

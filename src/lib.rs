@@ -1,18 +1,13 @@
-#![allow(non_upper_case_globals)]
-#![allow(non_camel_case_types)]
-#![allow(non_snake_case)]
-
-extern crate ordered_float;
 #[cfg(feature = "serde_support")]
-extern crate serde;
+use serde;
 #[macro_use]
 #[cfg(feature = "serde_support")]
-extern crate serde_derive;
+use serde_derive;
 
 // API created by bindgen
 mod internal {
 	#![allow(dead_code)]
-	include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+	include!("bindings.rs");
 	pub use self::root::*;
 }
 
@@ -44,7 +39,7 @@ pub mod traits;
 pub mod types;
 
 use std::any::Any;
-pub use types::*;
+pub use crate::types::*;
 
 #[repr(C)]
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -234,7 +229,7 @@ impl Node {
 				StyleUnit::UndefinedValue => internal::YGNodeStyleSetPosition(
 					self.inner_node,
 					internal::YGEdge::from(edge),
-					Undefined,
+					UNDEFINED,
 				),
 				StyleUnit::Point(val) => internal::YGNodeStyleSetPosition(
 					self.inner_node,
@@ -250,7 +245,7 @@ impl Node {
 				StyleUnit::Auto => internal::YGNodeStyleSetPosition(
 					self.inner_node,
 					internal::YGEdge::from(edge),
-					Undefined,
+					UNDEFINED,
 				),
 			}
 		}
@@ -290,7 +285,7 @@ impl Node {
 		unsafe {
 			match flex_basis {
 				StyleUnit::UndefinedValue => {
-					internal::YGNodeStyleSetFlexBasis(self.inner_node, Undefined)
+					internal::YGNodeStyleSetFlexBasis(self.inner_node, UNDEFINED)
 				}
 				StyleUnit::Point(val) => {
 					internal::YGNodeStyleSetFlexBasis(self.inner_node, val.into_inner())
@@ -319,7 +314,7 @@ impl Node {
 				StyleUnit::UndefinedValue => internal::YGNodeStyleSetMargin(
 					self.inner_node,
 					internal::YGEdge::from(edge),
-					Undefined,
+					UNDEFINED,
 				),
 				StyleUnit::Point(val) => internal::YGNodeStyleSetMargin(
 					self.inner_node,
@@ -345,7 +340,7 @@ impl Node {
 				StyleUnit::UndefinedValue => internal::YGNodeStyleSetPadding(
 					self.inner_node,
 					internal::YGEdge::from(edge),
-					Undefined,
+					UNDEFINED,
 				),
 				StyleUnit::Point(val) => internal::YGNodeStyleSetPadding(
 					self.inner_node,
@@ -361,7 +356,7 @@ impl Node {
 				StyleUnit::Auto => internal::YGNodeStyleSetPadding(
 					self.inner_node,
 					internal::YGEdge::from(edge),
-					Undefined,
+					UNDEFINED,
 				),
 			}
 		}
@@ -377,7 +372,7 @@ impl Node {
 		unsafe {
 			match width {
 				StyleUnit::UndefinedValue => {
-					internal::YGNodeStyleSetWidth(self.inner_node, Undefined)
+					internal::YGNodeStyleSetWidth(self.inner_node, UNDEFINED)
 				}
 				StyleUnit::Point(val) => {
 					internal::YGNodeStyleSetWidth(self.inner_node, val.into_inner())
@@ -394,7 +389,7 @@ impl Node {
 		unsafe {
 			match height {
 				StyleUnit::UndefinedValue => {
-					internal::YGNodeStyleSetHeight(self.inner_node, Undefined)
+					internal::YGNodeStyleSetHeight(self.inner_node, UNDEFINED)
 				}
 				StyleUnit::Point(val) => {
 					internal::YGNodeStyleSetHeight(self.inner_node, val.into_inner())
@@ -411,7 +406,7 @@ impl Node {
 		unsafe {
 			match min_width {
 				StyleUnit::UndefinedValue => {
-					internal::YGNodeStyleSetMinWidth(self.inner_node, Undefined)
+					internal::YGNodeStyleSetMinWidth(self.inner_node, UNDEFINED)
 				}
 				StyleUnit::Point(val) => {
 					internal::YGNodeStyleSetMinWidth(self.inner_node, val.into_inner())
@@ -420,7 +415,7 @@ impl Node {
 					internal::YGNodeStyleSetMinWidthPercent(self.inner_node, val.into_inner())
 				}
 				// auto is not a valid value for min_width
-				StyleUnit::Auto => internal::YGNodeStyleSetMinWidth(self.inner_node, Undefined),
+				StyleUnit::Auto => internal::YGNodeStyleSetMinWidth(self.inner_node, UNDEFINED),
 			}
 		}
 	}
@@ -429,7 +424,7 @@ impl Node {
 		unsafe {
 			match min_height {
 				StyleUnit::UndefinedValue => {
-					internal::YGNodeStyleSetMinHeight(self.inner_node, Undefined)
+					internal::YGNodeStyleSetMinHeight(self.inner_node, UNDEFINED)
 				}
 				StyleUnit::Point(val) => {
 					internal::YGNodeStyleSetMinHeight(self.inner_node, val.into_inner())
@@ -438,7 +433,7 @@ impl Node {
 					internal::YGNodeStyleSetMinHeightPercent(self.inner_node, val.into_inner())
 				}
 				// auto is not a valid value for min_height
-				StyleUnit::Auto => internal::YGNodeStyleSetMinHeight(self.inner_node, Undefined),
+				StyleUnit::Auto => internal::YGNodeStyleSetMinHeight(self.inner_node, UNDEFINED),
 			}
 		}
 	}
@@ -447,7 +442,7 @@ impl Node {
 		unsafe {
 			match max_width {
 				StyleUnit::UndefinedValue => {
-					internal::YGNodeStyleSetMaxWidth(self.inner_node, Undefined)
+					internal::YGNodeStyleSetMaxWidth(self.inner_node, UNDEFINED)
 				}
 				StyleUnit::Point(val) => {
 					internal::YGNodeStyleSetMaxWidth(self.inner_node, val.into_inner())
@@ -456,7 +451,7 @@ impl Node {
 					internal::YGNodeStyleSetMaxWidthPercent(self.inner_node, val.into_inner())
 				}
 				// auto is not a valid value for max_width
-				StyleUnit::Auto => internal::YGNodeStyleSetMaxWidth(self.inner_node, Undefined),
+				StyleUnit::Auto => internal::YGNodeStyleSetMaxWidth(self.inner_node, UNDEFINED),
 			}
 		}
 	}
@@ -465,7 +460,7 @@ impl Node {
 		unsafe {
 			match max_height {
 				StyleUnit::UndefinedValue => {
-					internal::YGNodeStyleSetMaxHeight(self.inner_node, Undefined)
+					internal::YGNodeStyleSetMaxHeight(self.inner_node, UNDEFINED)
 				}
 				StyleUnit::Point(val) => {
 					internal::YGNodeStyleSetMaxHeight(self.inner_node, val.into_inner())
@@ -474,7 +469,7 @@ impl Node {
 					internal::YGNodeStyleSetMaxHeightPercent(self.inner_node, val.into_inner())
 				}
 				// auto is not a valid value for max_height
-				StyleUnit::Auto => internal::YGNodeStyleSetMaxHeight(self.inner_node, Undefined),
+				StyleUnit::Auto => internal::YGNodeStyleSetMaxHeight(self.inner_node, UNDEFINED),
 			}
 		}
 	}
@@ -934,21 +929,21 @@ impl Node {
 		unsafe { internal::YGNodeSetContext(self.inner_node, raw) }
 	}
 
-	pub fn get_context(node_ref: &NodeRef) -> Option<&Box<Any>> {
+	pub fn get_context(node_ref: &NodeRef) -> Option<&Box<dyn Any>> {
 		let raw = unsafe { internal::YGNodeGetContext(*node_ref) };
 		Context::get_inner_ref(raw)
 	}
 
-	pub fn get_context_mut(node_ref: &NodeRef) -> Option<&mut Box<Any>> {
+	pub fn get_context_mut(node_ref: &NodeRef) -> Option<&mut Box<dyn Any>> {
 		let raw = unsafe { internal::YGNodeGetContext(*node_ref) };
 		Context::get_inner_mut(raw)
 	}
 
-	pub fn get_own_context(&self) -> Option<&Box<Any>> {
+	pub fn get_own_context(&self) -> Option<&Box<dyn Any>> {
 		Node::get_context(&self.inner_node)
 	}
 
-	pub fn get_own_context_mut(&self) -> Option<&mut Box<Any>> {
+	pub fn get_own_context_mut(&self) -> Option<&mut Box<dyn Any>> {
 		Node::get_context_mut(&self.inner_node)
 	}
 

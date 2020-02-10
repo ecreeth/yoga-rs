@@ -3,7 +3,7 @@ extern crate ordered_float;
 extern crate yoga;
 
 use yoga::{Align, Direction, FlexDirection, Justify, MeasureMode, Node, NodeRef, PositionType,
-           Size, Undefined};
+           Size, UNDEFINED};
 use yoga::prelude::*;
 
 #[test]
@@ -25,7 +25,7 @@ fn test_aspect_ratio_cross_defined() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -60,7 +60,7 @@ fn test_aspect_ratio_main_defined() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -97,7 +97,7 @@ fn test_aspect_ratio_both_dimensions_defined_row() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -133,7 +133,7 @@ fn test_aspect_ratio_both_dimensions_defined_column() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -164,7 +164,7 @@ fn test_aspect_ratio_align_stretch() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -200,7 +200,7 @@ fn test_aspect_ratio_flex_grow() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -236,7 +236,7 @@ fn test_aspect_ratio_flex_shrink() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -271,7 +271,7 @@ fn test_aspect_ratio_basis() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -308,7 +308,7 @@ fn test_aspect_ratio_absolute_layout_width_defined() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -345,7 +345,7 @@ fn test_aspect_ratio_absolute_layout_height_defined() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -381,7 +381,7 @@ fn test_aspect_ratio_with_max_cross_defined() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -417,7 +417,7 @@ fn test_aspect_ratio_with_max_main_defined() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -453,7 +453,7 @@ fn test_aspect_ratio_with_min_cross_defined() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -489,7 +489,7 @@ fn test_aspect_ratio_with_min_main_defined() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -524,7 +524,7 @@ fn test_aspect_ratio_double_cross() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -559,7 +559,7 @@ fn test_aspect_ratio_half_cross() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -594,7 +594,7 @@ fn test_aspect_ratio_double_main() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -629,7 +629,7 @@ fn test_aspect_ratio_half_main() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -685,7 +685,7 @@ fn test_aspect_ratio_with_measure_func() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -723,7 +723,7 @@ fn test_aspect_ratio_width_height_flex_grow_row() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -760,7 +760,7 @@ fn test_aspect_ratio_width_height_flex_grow_column() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -806,7 +806,7 @@ fn test_aspect_ratio_height_as_flex_basis() {
 	root.insert_child(&mut root_child_0, 0);
 	root.insert_child(&mut root_child_1, 1);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -857,7 +857,7 @@ fn test_aspect_ratio_width_as_flex_basis() {
 	root.insert_child(&mut root_child_0, 0);
 	root.insert_child(&mut root_child_1, 1);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -900,7 +900,7 @@ fn test_aspect_ratio_overrides_flex_grow_row() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -936,7 +936,7 @@ fn test_aspect_ratio_overrides_flex_grow_column() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -973,7 +973,7 @@ fn test_aspect_ratio_left_right_absolute() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -1010,7 +1010,7 @@ fn test_aspect_ratio_top_bottom_absolute() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -1045,7 +1045,7 @@ fn test_aspect_ratio_width_overrides_align_stretch_row() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -1079,7 +1079,7 @@ fn test_aspect_ratio_height_overrides_align_stretch_column() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -1113,7 +1113,7 @@ fn test_aspect_ratio_allow_child_overflow_parent_size() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -1151,7 +1151,7 @@ fn test_aspect_ratio_defined_main_with_margin() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();
@@ -1189,7 +1189,7 @@ fn test_aspect_ratio_defined_cross_with_margin() {
 
 	root.insert_child(&mut root_child_0, 0);
 
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	let root_layout = root.get_layout();
 	let child_0_layout = root_child_0.get_layout();

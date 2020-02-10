@@ -146,7 +146,7 @@ fn test_android_news_feed() {
 	root_child0_child0_child1_child0_child1_child1.set_min_width(StyleUnit::Auto);
 	root_child0_child0_child1_child0_child1_child1.set_min_height(StyleUnit::Auto);
 	root_child0_child0_child1_child0_child1.insert_child(&mut root_child0_child0_child1_child0_child1_child1, 1);
-	root.calculate_layout(Undefined, Undefined, Direction::LTR);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::LTR);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());
@@ -233,7 +233,7 @@ fn test_android_news_feed() {
 	assert_eq!(0 as f32, root_child0_child0_child1_child0_child1_child1.get_layout_width());
 	assert_eq!(0 as f32, root_child0_child0_child1_child0_child1_child1.get_layout_height());
 
-	root.calculate_layout(Undefined, Undefined, Direction::RTL);
+	root.calculate_layout(UNDEFINED, UNDEFINED, Direction::RTL);
 
 	assert_eq!(0 as f32, root.get_layout_left());
 	assert_eq!(0 as f32, root.get_layout_top());

@@ -1,10 +1,5 @@
-extern crate bindgen;
-extern crate cc;
-
-use bindgen::RustTarget;
 use cc::Build;
-use std::env;
-use std::path::PathBuf;
+use bindgen::RustTarget;
 use std::process::Command;
 
 fn main() {
@@ -19,15 +14,22 @@ fn main() {
 
 	Build::new()
 		.cpp(true)
-		// https://github.com/facebook/yoga/blob/c5f826de8306e5fbe5963f944c75add827e096c3/BUCK#L13
+		.include("src/yoga")
+		// BASE_COMPILER_FLAGS: https://github.com/facebook/yoga/blob/master/tools/build_defs/oss/yoga_defs.bzl#L54
 		.flag("-std=c++1y")
-		// https://github.com/facebook/yoga/blob/c5f826de8306e5fbe5963f944c75add827e096c3/yoga_defs.bzl#L49-L56
 		.flag("-fno-omit-frame-pointer")
 		.flag("-fexceptions")
+		.flag("-fvisibility=hidden")
+		.flag("-ffunction-sections")
+		.flag("-fdata-sections")
 		.flag("-Wall")
-		.flag("-O3")
-		.flag("-ffast-math")
-		// https://github.com/facebook/yoga/blob/c5f826de8306e5fbe5963f944c75add827e096c3/yoga_defs.bzl#L58-L60
+		.flag("-Werror")
+		.flag("-O2")
+		.flag("-std=c++11")
+		.flag("-DYG_ENABLE_EVENTS")
+		//
+		.flag("-Wno-inconsistent-missing-override")
+		// LIBRARY_COMPILER_FLAGS: https://github.com/facebook/yoga/blob/master/tools/build_defs/oss/yoga_defs.bzl#L66
 		.flag("-fPIC")
 		// C++ Files
 		.file("src/yoga/yoga/Utils.cpp")
@@ -42,22 +44,20 @@ fn main() {
 		.compile("libyoga.a");
 
 	let bindings = bindgen::Builder::default()
-		.rust_target(RustTarget::Stable_1_21)
+		.rust_target(RustTarget::Stable_1_40)
 		.no_convert_floats()
 		.enable_cxx_namespaces()
 		.whitelist_type("YG.*")
 		.whitelist_function("YG.*")
 		.whitelist_var("YG.*")
 		.layout_tests(false)
-		.rustfmt_bindings(false)
+		.rustfmt_bindings(true)
 		.rustified_enum("YG.*")
 		.header("src/yoga/yoga/Yoga.h")
 		.generate()
 		.expect("Unable to generate bindings");
 
-	let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
-
 	bindings
-		.write_to_file(out_path.join("bindings.rs"))
+		.write_to_file("src/bindings.rs")
 		.expect("Unable to write bindings!");
 }

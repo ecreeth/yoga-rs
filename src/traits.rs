@@ -1,5 +1,5 @@
 use ordered_float::OrderedFloat;
-use types::StyleUnit;
+use crate::types::StyleUnit;
 
 pub trait Percent {
 	fn percent(self) -> StyleUnit;
