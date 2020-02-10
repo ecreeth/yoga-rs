@@ -14,19 +14,3 @@ pub enum Edge {
 	Vertical = 7,
 	All = 8,
 }
-
-impl From<Edge> for internal::YGEdge {
-	fn from(e: Edge) -> internal::YGEdge {
-		match e {
-			Edge::Left => internal::YGEdge::YGEdgeLeft,
-			Edge::Top => internal::YGEdge::YGEdgeTop,
-			Edge::Right => internal::YGEdge::YGEdgeRight,
-			Edge::Bottom => internal::YGEdge::YGEdgeBottom,
-			Edge::Start => internal::YGEdge::YGEdgeStart,
-			Edge::End => internal::YGEdge::YGEdgeEnd,
-			Edge::Horizontal => internal::YGEdge::YGEdgeHorizontal,
-			Edge::Vertical => internal::YGEdge::YGEdgeVertical,
-			Edge::All => internal::YGEdge::YGEdgeAll,
-		}
-	}
-}

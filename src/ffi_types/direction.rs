@@ -8,23 +8,3 @@ pub enum Direction {
 	LTR = 1,
 	RTL = 2,
 }
-
-impl From<Direction> for internal::YGDirection {
-	fn from(d: Direction) -> internal::YGDirection {
-		match d {
-			Direction::Inherit => internal::YGDirection::YGDirectionInherit,
-			Direction::LTR => internal::YGDirection::YGDirectionLTR,
-			Direction::RTL => internal::YGDirection::YGDirectionRTL,
-		}
-	}
-}
-
-impl From<internal::YGDirection> for Direction {
-	fn from(d: internal::YGDirection) -> Direction {
-		match d {
-			internal::YGDirection::YGDirectionInherit => Direction::Inherit,
-			internal::YGDirection::YGDirectionLTR => Direction::LTR,
-			internal::YGDirection::YGDirectionRTL => Direction::RTL,
-		}
-	}
-}

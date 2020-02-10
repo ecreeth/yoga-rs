@@ -43,21 +43,21 @@ fn main() {
 		.file("src/yoga/yoga/Yoga.cpp")
 		.compile("libyoga.a");
 
-	let bindings = bindgen::Builder::default()
-		.rust_target(RustTarget::Stable_1_40)
-		.no_convert_floats()
-		.enable_cxx_namespaces()
-		.whitelist_type("YG.*")
-		.whitelist_function("YG.*")
-		.whitelist_var("YG.*")
-		.layout_tests(false)
-		.rustfmt_bindings(true)
-		.rustified_enum("YG.*")
-		.header("src/yoga/yoga/Yoga.h")
-		.generate()
-		.expect("Unable to generate bindings");
+	// let bindings = bindgen::Builder::default()
+	// 	.rust_target(RustTarget::Stable_1_40)
+	// 	.no_convert_floats()
+	// 	.enable_cxx_namespaces()
+	// 	.whitelist_type("YG.*")
+	// 	.whitelist_function("YG.*")
+	// 	.whitelist_var("YG.*")
+	// 	.layout_tests(false)
+	// 	.rustfmt_bindings(true)
+	// 	.rustified_enum("YG.*")
+	// 	.header("src/yoga/yoga/Yoga.h")
+	// 	.generate()
+	// 	.expect("Unable to generate bindings");
 
-	bindings
-		.write_to_file("src/bindings.rs")
-		.expect("Unable to write bindings!");
+	// bindings
+	// 	.write_to_file("src/bindings.rs")
+	// 	.expect("Unable to write bindings!");
 }

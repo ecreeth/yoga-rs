@@ -1,3 +1,3 @@
 use crate::internal;
 
-pub type NodeRef = internal::YGNodeRef;
+pub type NodeRef = internal::NodeRef;
