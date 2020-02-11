@@ -1,3 +1,3 @@
 use crate::internal;
 
-pub const UNDEFINED: f32 = internal::YGUndefined as f32;
+pub const UNDEFINED: f32 = internal::YG_UNDEFINED as f32;

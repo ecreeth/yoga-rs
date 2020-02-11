@@ -1,133 +1,70 @@
-#[allow(unused_imports)]
-
 #[cfg(feature = "serde_support")]
 use serde;
 #[macro_use]
 #[cfg(feature = "serde_support")]
 use serde_derive;
 
+#[allow(dead_code)]
 mod internal {
+	use std::os::raw::{c_char, c_double, c_int, c_float, c_void};
+	use super::ffi_types::align::*;
+	use super::ffi_types::dimension::*;
+	use super::ffi_types::direction::*;
+	use super::ffi_types::display::*;
+	use super::ffi_types::edge::*;
+	use super::ffi_types::flex_direction::*;
+	use super::ffi_types::justify::*;
+	use super::ffi_types::log_level::*;
+	use super::ffi_types::measure_mode::*;
+	// use super::ffi_types::node_ref::*;
+	use super::ffi_types::node_type::*;
+	use super::ffi_types::overflow::*;
+	use super::ffi_types::position_type::*;
+	use super::ffi_types::print_options::*;
+	use super::ffi_types::size::*;
+	use super::ffi_types::style_unit::*;
+	use super::ffi_types::wrap::*;
 
-	#![allow(dead_code)]
+	pub const YG_UNDEFINED: 				 c_double = 1000000000000000000000.0;
+	pub const YG_ALIGNCOUNT: 				 u32 = 8;
+	pub const YG_DIMENSIONCOUNT: 		 u32 = 2;
+	pub const YG_DIRECTIONCOUNT: 		 u32 = 3;
+	pub const YG_DISPLAYCOUNT: 			 u32 = 2;
+	pub const YG_EDGECOUNT: 				 u32 = 9;
+	pub const YG_FLEXDIRECTIONCOUNT: u32 = 4;
+	pub const YG_JUSTIFYCOUNT: 		   u32 = 6;
+	pub const YG_LOGLEVELCOUNT: 		 u32 = 6;
+	pub const YG_MEASUREMODECOUNT:   u32 = 3;
+	pub const YG_NODETYPECOUNT: 		 u32 = 2;
+	pub const YG_OVERFLOWCOUNT: 		 u32 = 3;
+	pub const YG_POSITIONTYPECOUNT:  u32 = 2;
+	pub const YG_PRINTOPTIONSCOUNT:  u32 = 3;
+	pub const YG_UNITCOUNT: 				 u32 = 4;
+	pub const YG_WRAPCOUNT: 				 u32 = 3;
+	pub const YG_EXPERIMENTALFEATURECOUNT: u32 = 1;
 
-	use std::os::raw::c_char;
-
-	use crate::ffi_types::align::*;
-	
-	use crate::ffi_types::dimension::*;
-	use crate::ffi_types::direction::*;
-	use crate::ffi_types::display::*;
-	use crate::ffi_types::edge::*;
-	use crate::ffi_types::flex_direction::*;
-	use crate::ffi_types::justify::*;
-	use crate::ffi_types::log_level::*;
-	use crate::ffi_types::measure_mode::*;
-	// use crate::ffi_types::node_ref::*;
-	use crate::ffi_types::node_type::*;
-	use crate::ffi_types::overflow::*;
-	use crate::ffi_types::position_type::*;
-	use crate::ffi_types::print_options::*;
-	use crate::ffi_types::size::*;
-	use crate::ffi_types::style_unit::*;
-	
-	use crate::ffi_types::wrap::*;
-
-	#[allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
-	pub const YGUndefined: ::std::os::raw::c_double = 1000000000000000000000.0;
-	pub const YGAlignCount: u32 = 8;
-	pub const YGDimensionCount: u32 = 2;
-	pub const YGDirectionCount: u32 = 3;
-	pub const YGDisplayCount: u32 = 2;
-	pub const YGEdgeCount: u32 = 9;
-	pub const YGExperimentalFeatureCount: u32 = 1;
-	pub const YGFlexDirectionCount: u32 = 4;
-	pub const YGJustifyCount: u32 = 6;
-	pub const YGLogLevelCount: u32 = 6;
-	pub const YGMeasureModeCount: u32 = 3;
-	pub const YGNodeTypeCount: u32 = 2;
-	pub const YGOverflowCount: u32 = 3;
-	pub const YGPositionTypeCount: u32 = 2;
-	pub const YGPrintOptionsCount: u32 = 3;
-	pub const YGUnitCount: u32 = 4;
-	pub const YGWrapCount: u32 = 3;
-	pub type Int32T = ::std::os::raw::c_int;
-	pub type Uint32T = ::std::os::raw::c_uint;
-	pub type VaList = BuiltinVaList;
-
-	type TChar = *const c_char;
-	type TFloat = ::std::os::raw::c_float;
-
-	extern "C" {
-		pub fn YGAlignToString(value: Align) -> TChar;
-	}
-	extern "C" {
-		pub fn YGDimensionToString(value: Dimension) -> TChar;
-	}
-	extern "C" {
-		pub fn YGDirectionToString(value: Direction) -> TChar;
-	}
-	extern "C" {
-		pub fn YGDisplayToString(value: Display) -> TChar;
-	}
-	extern "C" {
-		pub fn YGEdgeToString(value: Edge) -> TChar;
-	}
 	#[repr(u32)]
 	#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 	pub enum YGExperimentalFeature {
 		YGExperimentalFeatureWebFlexBasis = 0,
 	}
-	extern "C" {
-		pub fn YGExperimentalFeatureToString(
-			value: YGExperimentalFeature,
-		) -> TChar;
+
+	#[repr(u32)]
+	#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+	pub enum YGUnit {
+		YGUnitUndefined = 0,
+		YGUnitPoint = 1,
+		YGUnitPercent = 2,
+		YGUnitAuto = 3,
 	}
-	extern "C" {
-		pub fn YGFlexDirectionToString(
-			value: FlexDirection,
-		) -> TChar;
-	}
-	extern "C" {
-		pub fn YGJustifyToString(value: Justify) -> TChar;
-	}
-	extern "C" {
-		pub fn YGLogLevelToString(value: LogLevel) -> TChar;
-	}
-	extern "C" {
-		pub fn YGMeasureModeToString(value: MeasureMode) -> TChar;
-	}
-	extern "C" {
-		pub fn YGNodeTypeToString(value: NodeType) -> TChar;
-	}
-	extern "C" {
-		pub fn YGOverflowToString(value: Overflow) -> TChar;
-	}
-	extern "C" {
-		pub fn YGPositionTypeToString(value: PositionType)
-			-> TChar;
-	}
-	extern "C" {
-		pub fn YGPrintOptionsToString(value: PrintOptions)
-			-> TChar;
-	}
-	extern "C" {
-		pub fn YGUnitToString(value: StyleUnit) -> TChar;
-	}
-	extern "C" {
-		pub fn YGWrapToString(value: Wrap) -> TChar;
-	}
+
 	#[repr(C)]
 	#[derive(Debug, Copy, Clone)]
 	pub struct YGValue {
-		pub value: TFloat,
-		pub unit: StyleUnit,
+		pub value: c_float,
+		pub unit: YGUnit,
 	}
-	extern "C" {
-		pub static YGValueUndefined: YGValue;
-	}
-	extern "C" {
-		pub static YGValueAuto: YGValue;
-	}
+
 	#[repr(C)]
 	#[derive(Debug, Copy, Clone)]
 	pub struct YGConfig {
@@ -143,18 +80,18 @@ mod internal {
 	pub type YGMeasureFunc = ::std::option::Option<
 		unsafe extern "C" fn(
 			node: NodeRef,
-			width: TFloat,
+			width: c_float,
 			widthMode: MeasureMode,
-			height: TFloat,
+			height: c_float,
 			heightMode: MeasureMode,
 		) -> Size,
 	>;
 	pub type YGBaselineFunc = ::std::option::Option<
 		unsafe extern "C" fn(
 			node: NodeRef,
-			width: TFloat,
-			height: TFloat,
-		) -> TFloat,
+			width: c_float,
+			height: c_float,
+		) -> c_float,
 	>;
 	pub type YGDirtiedFunc = ::std::option::Option<unsafe extern "C" fn(node: NodeRef)>;
 	pub type YGPrintFunc = ::std::option::Option<unsafe extern "C" fn(node: NodeRef)>;
@@ -163,17 +100,78 @@ mod internal {
 			config: YGConfigRef,
 			node: NodeRef,
 			level: LogLevel,
-			format: TChar,
+			format: c_char,
 			args: *mut __va_list_tag,
-		) -> ::std::os::raw::c_int,
+		) -> c_int,
 	>;
 	pub type YGCloneNodeFunc = ::std::option::Option<
 		unsafe extern "C" fn(
 			oldNode: NodeRef,
 			owner: NodeRef,
-			childIndex: ::std::os::raw::c_int,
+			childIndex: c_int,
 		) -> NodeRef,
 	>;
+
+	extern "C" {
+		pub fn YGAlignToString(value: Align) -> c_char;
+	}
+	extern "C" {
+		pub fn YGDimensionToString(value: Dimension) -> c_char;
+	}
+	extern "C" {
+		pub fn YGDirectionToString(value: Direction) -> c_char;
+	}
+	extern "C" {
+		pub fn YGDisplayToString(value: Display) -> c_char;
+	}
+	extern "C" {
+		pub fn YGEdgeToString(value: Edge) -> c_char;
+	}
+	extern "C" {
+		pub fn YGExperimentalFeatureToString(
+			value: YGExperimentalFeature,
+		) -> c_char;
+	}
+	extern "C" {
+		pub fn YGFlexDirectionToString(
+			value: FlexDirection,
+		) -> c_char;
+	}
+	extern "C" {
+		pub fn YGJustifyToString(value: Justify) -> c_char;
+	}
+	extern "C" {
+		pub fn YGLogLevelToString(value: LogLevel) -> c_char;
+	}
+	extern "C" {
+		pub fn YGMeasureModeToString(value: MeasureMode) -> c_char;
+	}
+	extern "C" {
+		pub fn YGNodeTypeToString(value: NodeType) -> c_char;
+	}
+	extern "C" {
+		pub fn YGOverflowToString(value: Overflow) -> c_char;
+	}
+	extern "C" {
+		pub fn YGPositionTypeToString(value: PositionType)
+			-> c_char;
+	}
+	extern "C" {
+		pub fn YGPrintOptionsToString(value: PrintOptions)
+			-> c_char;
+	}
+	extern "C" {
+		pub fn YGUnitToString(value: StyleUnit) -> c_char;
+	}
+	extern "C" {
+		pub fn YGWrapToString(value: Wrap) -> c_char;
+	}
+	extern "C" {
+		pub static YGValueUndefined: YGValue;
+	}
+	extern "C" {
+		pub static YGValueAuto: YGValue;
+	}
 	extern "C" {
 		pub fn YGNodeNew() -> NodeRef;
 	}
@@ -229,8 +227,8 @@ mod internal {
 	extern "C" {
 		pub fn YGNodeCalculateLayout(
 			node: NodeRef,
-			availableWidth: TFloat,
-			availableHeight: TFloat,
+			availableWidth: c_float,
+			availableHeight: c_float,
 			ownerDirection: Direction,
 		);
 	}
@@ -244,22 +242,22 @@ mod internal {
 		pub fn YGNodePrint(node: NodeRef, options: PrintOptions);
 	}
 	extern "C" {
-		pub fn YGFloatIsUndefined(value: TFloat) -> bool;
+		pub fn YGFloatIsUndefined(value: c_float) -> bool;
 	}
 	extern "C" {
 		pub fn YGNodeCanUseCachedMeasurement(
 			widthMode: MeasureMode,
-			width: TFloat,
+			width: c_float,
 			heightMode: MeasureMode,
-			height: TFloat,
+			height: c_float,
 			lastWidthMode: MeasureMode,
-			lastWidth: TFloat,
+			lastWidth: c_float,
 			lastHeightMode: MeasureMode,
-			lastHeight: TFloat,
-			lastComputedWidth: TFloat,
-			lastComputedHeight: TFloat,
-			marginRow: TFloat,
-			marginColumn: TFloat,
+			lastHeight: c_float,
+			lastComputedWidth: c_float,
+			lastComputedHeight: c_float,
+			marginRow: c_float,
+			marginColumn: c_float,
 			config: YGConfigRef,
 		) -> bool;
 	}
@@ -267,10 +265,10 @@ mod internal {
 		pub fn YGNodeCopyStyle(dstNode: NodeRef, srcNode: NodeRef);
 	}
 	extern "C" {
-		pub fn YGNodeGetContext(node: NodeRef) -> *mut ::std::os::raw::c_void;
+		pub fn YGNodeGetContext(node: NodeRef) -> *mut c_void;
 	}
 	extern "C" {
-		pub fn YGNodeSetContext(node: NodeRef, context: *mut ::std::os::raw::c_void);
+		pub fn YGNodeSetContext(node: NodeRef, context: *mut c_void);
 	}
 	extern "C" {
 		pub fn YGConfigSetPrintTreeFlag(config: YGConfigRef, enabled: bool);
@@ -384,30 +382,30 @@ mod internal {
 		pub fn YGNodeStyleGetDisplay(node: NodeRef) -> Display;
 	}
 	extern "C" {
-		pub fn YGNodeStyleSetFlex(node: NodeRef, flex: TFloat);
+		pub fn YGNodeStyleSetFlex(node: NodeRef, flex: c_float);
 	}
 	extern "C" {
-		pub fn YGNodeStyleGetFlex(node: NodeRef) -> TFloat;
+		pub fn YGNodeStyleGetFlex(node: NodeRef) -> c_float;
 	}
 	extern "C" {
-		pub fn YGNodeStyleSetFlexGrow(node: NodeRef, flexGrow: TFloat);
+		pub fn YGNodeStyleSetFlexGrow(node: NodeRef, flexGrow: c_float);
 	}
 	extern "C" {
-		pub fn YGNodeStyleGetFlexGrow(node: NodeRef) -> TFloat;
+		pub fn YGNodeStyleGetFlexGrow(node: NodeRef) -> c_float;
 	}
 	extern "C" {
-		pub fn YGNodeStyleSetFlexShrink(node: NodeRef, flexShrink: TFloat);
+		pub fn YGNodeStyleSetFlexShrink(node: NodeRef, flexShrink: c_float);
 	}
 	extern "C" {
-		pub fn YGNodeStyleGetFlexShrink(node: NodeRef) -> TFloat;
+		pub fn YGNodeStyleGetFlexShrink(node: NodeRef) -> c_float;
 	}
 	extern "C" {
-		pub fn YGNodeStyleSetFlexBasis(node: NodeRef, flexBasis: TFloat);
+		pub fn YGNodeStyleSetFlexBasis(node: NodeRef, flexBasis: c_float);
 	}
 	extern "C" {
 		pub fn YGNodeStyleSetFlexBasisPercent(
 			node: NodeRef,
-			flexBasis: TFloat,
+			flexBasis: c_float,
 		);
 	}
 	extern "C" {
@@ -420,14 +418,14 @@ mod internal {
 		pub fn YGNodeStyleSetPosition(
 			node: NodeRef,
 			edge: Edge,
-			position: TFloat,
+			position: c_float,
 		);
 	}
 	extern "C" {
 		pub fn YGNodeStyleSetPositionPercent(
 			node: NodeRef,
 			edge: Edge,
-			position: TFloat,
+			position: c_float,
 		);
 	}
 	extern "C" {
@@ -437,14 +435,14 @@ mod internal {
 		pub fn YGNodeStyleSetMargin(
 			node: NodeRef,
 			edge: Edge,
-			margin: TFloat,
+			margin: c_float,
 		);
 	}
 	extern "C" {
 		pub fn YGNodeStyleSetMarginPercent(
 			node: NodeRef,
 			edge: Edge,
-			margin: TFloat,
+			margin: c_float,
 		);
 	}
 	extern "C" {
@@ -457,14 +455,14 @@ mod internal {
 		pub fn YGNodeStyleSetPadding(
 			node: NodeRef,
 			edge: Edge,
-			padding: TFloat,
+			padding: c_float,
 		);
 	}
 	extern "C" {
 		pub fn YGNodeStyleSetPaddingPercent(
 			node: NodeRef,
 			edge: Edge,
-			padding: TFloat,
+			padding: c_float,
 		);
 	}
 	extern "C" {
@@ -474,20 +472,20 @@ mod internal {
 		pub fn YGNodeStyleSetBorder(
 			node: NodeRef,
 			edge: Edge,
-			border: TFloat,
+			border: c_float,
 		);
 	}
 	extern "C" {
 		pub fn YGNodeStyleGetBorder(
 			node: NodeRef,
 			edge: Edge,
-		) -> TFloat;
+		) -> c_float;
 	}
 	extern "C" {
-		pub fn YGNodeStyleSetWidth(node: NodeRef, width: TFloat);
+		pub fn YGNodeStyleSetWidth(node: NodeRef, width: c_float);
 	}
 	extern "C" {
-		pub fn YGNodeStyleSetWidthPercent(node: NodeRef, width: TFloat);
+		pub fn YGNodeStyleSetWidthPercent(node: NodeRef, width: c_float);
 	}
 	extern "C" {
 		pub fn YGNodeStyleSetWidthAuto(node: NodeRef);
@@ -496,10 +494,10 @@ mod internal {
 		pub fn YGNodeStyleGetWidth(node: NodeRef) -> YGValue;
 	}
 	extern "C" {
-		pub fn YGNodeStyleSetHeight(node: NodeRef, height: TFloat);
+		pub fn YGNodeStyleSetHeight(node: NodeRef, height: c_float);
 	}
 	extern "C" {
-		pub fn YGNodeStyleSetHeightPercent(node: NodeRef, height: TFloat);
+		pub fn YGNodeStyleSetHeightPercent(node: NodeRef, height: c_float);
 	}
 	extern "C" {
 		pub fn YGNodeStyleSetHeightAuto(node: NodeRef);
@@ -508,48 +506,48 @@ mod internal {
 		pub fn YGNodeStyleGetHeight(node: NodeRef) -> YGValue;
 	}
 	extern "C" {
-		pub fn YGNodeStyleSetMinWidth(node: NodeRef, minWidth: TFloat);
+		pub fn YGNodeStyleSetMinWidth(node: NodeRef, minWidth: c_float);
 	}
 	extern "C" {
 		pub fn YGNodeStyleSetMinWidthPercent(
 			node: NodeRef,
-			minWidth: TFloat,
+			minWidth: c_float,
 		);
 	}
 	extern "C" {
 		pub fn YGNodeStyleGetMinWidth(node: NodeRef) -> YGValue;
 	}
 	extern "C" {
-		pub fn YGNodeStyleSetMinHeight(node: NodeRef, minHeight: TFloat);
+		pub fn YGNodeStyleSetMinHeight(node: NodeRef, minHeight: c_float);
 	}
 	extern "C" {
 		pub fn YGNodeStyleSetMinHeightPercent(
 			node: NodeRef,
-			minHeight: TFloat,
+			minHeight: c_float,
 		);
 	}
 	extern "C" {
 		pub fn YGNodeStyleGetMinHeight(node: NodeRef) -> YGValue;
 	}
 	extern "C" {
-		pub fn YGNodeStyleSetMaxWidth(node: NodeRef, maxWidth: TFloat);
+		pub fn YGNodeStyleSetMaxWidth(node: NodeRef, maxWidth: c_float);
 	}
 	extern "C" {
 		pub fn YGNodeStyleSetMaxWidthPercent(
 			node: NodeRef,
-			maxWidth: TFloat,
+			maxWidth: c_float,
 		);
 	}
 	extern "C" {
 		pub fn YGNodeStyleGetMaxWidth(node: NodeRef) -> YGValue;
 	}
 	extern "C" {
-		pub fn YGNodeStyleSetMaxHeight(node: NodeRef, maxHeight: TFloat);
+		pub fn YGNodeStyleSetMaxHeight(node: NodeRef, maxHeight: c_float);
 	}
 	extern "C" {
 		pub fn YGNodeStyleSetMaxHeightPercent(
 			node: NodeRef,
-			maxHeight: TFloat,
+			maxHeight: c_float,
 		);
 	}
 	extern "C" {
@@ -558,29 +556,29 @@ mod internal {
 	extern "C" {
 		pub fn YGNodeStyleSetAspectRatio(
 			node: NodeRef,
-			aspectRatio: TFloat,
+			aspectRatio: c_float,
 		);
 	}
 	extern "C" {
-		pub fn YGNodeStyleGetAspectRatio(node: NodeRef) -> TFloat;
+		pub fn YGNodeStyleGetAspectRatio(node: NodeRef) -> c_float;
 	}
 	extern "C" {
-		pub fn YGNodeLayoutGetLeft(node: NodeRef) -> TFloat;
+		pub fn YGNodeLayoutGetLeft(node: NodeRef) -> c_float;
 	}
 	extern "C" {
-		pub fn YGNodeLayoutGetTop(node: NodeRef) -> TFloat;
+		pub fn YGNodeLayoutGetTop(node: NodeRef) -> c_float;
 	}
 	extern "C" {
-		pub fn YGNodeLayoutGetRight(node: NodeRef) -> TFloat;
+		pub fn YGNodeLayoutGetRight(node: NodeRef) -> c_float;
 	}
 	extern "C" {
-		pub fn YGNodeLayoutGetBottom(node: NodeRef) -> TFloat;
+		pub fn YGNodeLayoutGetBottom(node: NodeRef) -> c_float;
 	}
 	extern "C" {
-		pub fn YGNodeLayoutGetWidth(node: NodeRef) -> TFloat;
+		pub fn YGNodeLayoutGetWidth(node: NodeRef) -> c_float;
 	}
 	extern "C" {
-		pub fn YGNodeLayoutGetHeight(node: NodeRef) -> TFloat;
+		pub fn YGNodeLayoutGetHeight(node: NodeRef) -> c_float;
 	}
 	extern "C" {
 		pub fn YGNodeLayoutGetDirection(node: NodeRef) -> Direction;
@@ -595,19 +593,19 @@ mod internal {
 		pub fn YGNodeLayoutGetMargin(
 			node: NodeRef,
 			edge: Edge,
-		) -> TFloat;
+		) -> c_float;
 	}
 	extern "C" {
 		pub fn YGNodeLayoutGetBorder(
 			node: NodeRef,
 			edge: Edge,
-		) -> TFloat;
+		) -> c_float;
 	}
 	extern "C" {
 		pub fn YGNodeLayoutGetPadding(
 			node: NodeRef,
 			edge: Edge,
-		) -> TFloat;
+		) -> c_float;
 	}
 	extern "C" {
 		pub fn YGConfigSetLogger(config: YGConfigRef, logger: YGLogger);
@@ -616,7 +614,7 @@ mod internal {
 		pub fn YGLog(
 			node: NodeRef,
 			level: LogLevel,
-			message: TChar,
+			message: c_char,
 			...
 		);
 	}
@@ -624,31 +622,31 @@ mod internal {
 		pub fn YGLogWithConfig(
 			config: YGConfigRef,
 			level: LogLevel,
-			format: TChar,
+			format: c_char,
 			...
 		);
 	}
 	extern "C" {
-		pub fn YGAssert(condition: bool, message: TChar);
+		pub fn YGAssert(condition: bool, message: c_char);
 	}
 	extern "C" {
 		pub fn YGAssertWithNode(
 			node: NodeRef,
 			condition: bool,
-			message: TChar,
+			message: c_char,
 		);
 	}
 	extern "C" {
 		pub fn YGAssertWithConfig(
 			config: YGConfigRef,
 			condition: bool,
-			message: TChar,
+			message: c_char,
 		);
 	}
 	extern "C" {
 		pub fn YGConfigSetPointScaleFactor(
 			config: YGConfigRef,
-			pixelsInPoint: TFloat,
+			pixelsInPoint: c_float,
 		);
 	}
 	extern "C" {
@@ -701,18 +699,18 @@ mod internal {
 		pub fn YGConfigGetDefault() -> YGConfigRef;
 	}
 	extern "C" {
-		pub fn YGConfigSetContext(config: YGConfigRef, context: *mut ::std::os::raw::c_void);
+		pub fn YGConfigSetContext(config: YGConfigRef, context: *mut c_void);
 	}
 	extern "C" {
-		pub fn YGConfigGetContext(config: YGConfigRef) -> *mut ::std::os::raw::c_void;
+		pub fn YGConfigGetContext(config: YGConfigRef) -> *mut c_void;
 	}
 	extern "C" {
 		pub fn YGRoundValueToPixelGrid(
-			value: TFloat,
-			pointScaleFactor: TFloat,
+			value: c_float,
+			pointScaleFactor: c_float,
 			forceCeil: bool,
 			forceFloor: bool,
-		) -> TFloat;
+		) -> c_float;
 	}
 	pub type BuiltinVaList = [__va_list_tag; 1usize];
 	#[repr(C)]
@@ -720,8 +718,8 @@ mod internal {
 	pub struct __va_list_tag {
 		pub gp_offset: ::std::os::raw::c_uint,
 		pub fp_offset: ::std::os::raw::c_uint,
-		pub overflow_arg_area: *mut ::std::os::raw::c_void,
-		pub reg_save_area: *mut ::std::os::raw::c_void,
+		pub overflow_arg_area: *mut c_void,
+		pub reg_save_area: *mut c_void,
 	}
 }
 
@@ -813,57 +811,57 @@ impl Node {
 		use FlexStyle::*;
 
 		match *style {
-			AlignContent(align) => self.set_align_content(align),
-			AlignItems(align) => self.set_align_items(align),
-			AlignSelf(align) => self.set_align_self(align),
-			AspectRatio(a) => self.set_aspect_ratio(a.into_inner()),
-			BorderBottom(b) => self.set_border(Edge::Bottom, b.into_inner()),
-			BorderEnd(b) => self.set_border(Edge::End, b.into_inner()),
-			BorderLeft(b) => self.set_border(Edge::Left, b.into_inner()),
-			BorderRight(b) => self.set_border(Edge::Right, b.into_inner()),
-			BorderStart(b) => self.set_border(Edge::Start, b.into_inner()),
-			BorderTop(b) => self.set_border(Edge::Top, b.into_inner()),
-			Border(b) => self.set_border(Edge::All, b.into_inner()),
-			Bottom(b) => self.set_position(Edge::Bottom, b),
-			Display(d) => self.set_display(d),
-			End(e) => self.set_position(Edge::End, e),
-			Flex(f) => self.set_flex(f.into_inner()),
-			FlexBasis(f) => self.set_flex_basis(f),
-			FlexGrow(f) => self.set_flex_grow(f.into_inner()),
-			FlexDirection(flex_direction) => self.set_flex_direction(flex_direction),
-			FlexShrink(f) => self.set_flex_shrink(f.into_inner()),
-			FlexWrap(wrap) => self.set_flex_wrap(wrap),
-			Height(h) => self.set_height(h),
+			AlignContent(align) 	 	=> self.set_align_content(align),
+			AlignItems(align) 		 	=> self.set_align_items(align),
+			AlignSelf(align) 			 	=> self.set_align_self(align),
+			AspectRatio(a) 				 	=> self.set_aspect_ratio(a.into_inner()),
+			BorderBottom(b) 			 	=> self.set_border(Edge::Bottom, b.into_inner()),
+			BorderEnd(b) 					 	=> self.set_border(Edge::End, b.into_inner()),
+			BorderLeft(b) 				 	=> self.set_border(Edge::Left, b.into_inner()),
+			BorderRight(b) 				 	=> self.set_border(Edge::Right, b.into_inner()),
+			BorderStart(b) 				 	=> self.set_border(Edge::Start, b.into_inner()),
+			BorderTop(b) 					 	=> self.set_border(Edge::Top, b.into_inner()),
+			Border(b) 					 	 	=> self.set_border(Edge::All, b.into_inner()),
+			Bottom(b) 					 	 	=> self.set_position(Edge::Bottom, b),
+			Display(d) 						 	=> self.set_display(d),
+			End(e) 								 	=> self.set_position(Edge::End, e),
+			Flex(f) 							 	=> self.set_flex(f.into_inner()),
+			FlexBasis(f) 					 	=> self.set_flex_basis(f),
+			FlexGrow(f) 					 	=> self.set_flex_grow(f.into_inner()),
+			FlexDirection(f_direct) => self.set_flex_direction(f_direct),
+			FlexShrink(f) 					=> self.set_flex_shrink(f.into_inner()),
+			FlexWrap(wrap) 					=> self.set_flex_wrap(wrap),
+			Height(h) 							=> self.set_height(h),
 			JustifyContent(justify) => self.set_justify_content(justify),
-			Left(l) => self.set_position(Edge::Left, l),
-			Margin(m) => self.set_margin(Edge::All, m),
-			MarginBottom(m) => self.set_margin(Edge::Bottom, m),
-			MarginEnd(m) => self.set_margin(Edge::End, m),
-			MarginHorizontal(m) => self.set_margin(Edge::Horizontal, m),
-			MarginLeft(m) => self.set_margin(Edge::Left, m),
-			MarginRight(m) => self.set_margin(Edge::Right, m),
-			MarginStart(m) => self.set_margin(Edge::Start, m),
-			MarginTop(m) => self.set_margin(Edge::Top, m),
-			MarginVertical(m) => self.set_margin(Edge::Vertical, m),
-			MaxHeight(h) => self.set_max_height(h),
-			MaxWidth(w) => self.set_max_width(w),
-			MinHeight(h) => self.set_min_height(h),
-			MinWidth(w) => self.set_min_width(w),
-			Overflow(o) => self.set_overflow(o),
-			Padding(p) => self.set_padding(Edge::All, p),
-			PaddingBottom(p) => self.set_padding(Edge::Bottom, p),
-			PaddingEnd(p) => self.set_padding(Edge::End, p),
-			PaddingHorizontal(p) => self.set_padding(Edge::Horizontal, p),
-			PaddingLeft(p) => self.set_padding(Edge::Left, p),
-			PaddingRight(p) => self.set_padding(Edge::Right, p),
-			PaddingStart(p) => self.set_padding(Edge::Start, p),
-			PaddingTop(p) => self.set_padding(Edge::Top, p),
-			PaddingVertical(p) => self.set_padding(Edge::Vertical, p),
+			Left(l) 								=> self.set_position(Edge::Left, l),
+			Margin(m) 							=> self.set_margin(Edge::All, m),
+			MarginBottom(m)				  => self.set_margin(Edge::Bottom, m),
+			MarginEnd(m) 						=> self.set_margin(Edge::End, m),
+			MarginHorizontal(m) 		=> self.set_margin(Edge::Horizontal, m),
+			MarginLeft(m) 					=> self.set_margin(Edge::Left, m),
+			MarginRight(m) 					=> self.set_margin(Edge::Right, m),
+			MarginStart(m) 					=> self.set_margin(Edge::Start, m),
+			MarginTop(m) 						=> self.set_margin(Edge::Top, m),
+			MarginVertical(m) 			=> self.set_margin(Edge::Vertical, m),
+			MaxHeight(h) 						=> self.set_max_height(h),
+			MaxWidth(w) 						=> self.set_max_width(w),
+			MinHeight(h) 						=> self.set_min_height(h),
+			MinWidth(w) 						=> self.set_min_width(w),
+			Overflow(o) 						=> self.set_overflow(o),
+			Padding(p) 							=> self.set_padding(Edge::All, p),
+			PaddingBottom(p)				=> self.set_padding(Edge::Bottom, p),
+			PaddingEnd(p) 					=> self.set_padding(Edge::End, p),
+			PaddingHorizontal(p) 		=> self.set_padding(Edge::Horizontal, p),
+			PaddingLeft(p) 					=> self.set_padding(Edge::Left, p),
+			PaddingRight(p) 				=> self.set_padding(Edge::Right, p),
+			PaddingStart(p) 				=> self.set_padding(Edge::Start, p),
+			PaddingTop(p) 					=> self.set_padding(Edge::Top, p),
+			PaddingVertical(p) 			=> self.set_padding(Edge::Vertical, p),
 			Position(position_type) => self.set_position_type(position_type),
-			Right(r) => self.set_position(Edge::Right, r),
-			Start(s) => self.set_position(Edge::Start, s),
-			Top(t) => self.set_position(Edge::Top, t),
-			Width(w) => self.set_width(w),
+			Right(r) 								=> self.set_position(Edge::Right, r),
+			Start(s) 								=> self.set_position(Edge::Start, s),
+			Top(t) 									=> self.set_position(Edge::Top, t),
+			Width(w) 								=> self.set_width(w),
 		}
 	}
 
